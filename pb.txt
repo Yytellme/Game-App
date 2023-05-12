@@ -1,0 +1,22 @@
+ProgressBar pb;
+int counter = 3000;
+
+countDown();
+
+public void countDown(){
+	pb = (ProgressBar) findViewById(R.id.progressBar);
+	final Timer t = new Timer();
+	TimerTask tt = new TimerTask(){
+		@Override
+		public void run(){
+			counter--;
+			pb.setProgress(counter);
+			
+			if(counter == 0)
+				t.cancel();
+		}
+	}
+
+};
+
+t.schedule(tt, 0, 3000);
